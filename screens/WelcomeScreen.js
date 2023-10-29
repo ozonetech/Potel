@@ -1,14 +1,23 @@
 import { StatusBar } from "expo-status-bar";
 import { useCallback } from "react";
-import { Image, StyleSheet, Text, View, Dimensions } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  Touchable,
+  TouchableOpacity,
+} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { AntDesign } from "@expo/vector-icons";
 
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
+import NextButton from "../components/nextButton";
+
 SplashScreen.preventAutoHideAsync();
-export default function App() {
+export default function App({ navigation }) {
   const [fontsLoaded] = useFonts({
     "Montserrat-Regular": require("../assets/fonts/Montserrat/Montserrat-Regular.ttf"),
     "Montserrat-Black": require("../assets/fonts/Montserrat/Montserrat-Black.ttf"),
@@ -27,7 +36,6 @@ export default function App() {
     return null;
   }
 
-  const ScreenHeight = Dimensions.get("window").height;
   return (
     <LinearGradient
       colors={["#101111", "#16171b"]}
@@ -55,21 +63,12 @@ export default function App() {
             Know The Power Status With Potel
           </Text>
         </View>
-        <View style={styles.nextButton2}>
-          <LinearGradient
-            style={styles.nextButton}
-            colors={["#FBB040", "#FFF200"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-          >
-            <AntDesign
-              style={styles.leftIcon}
-              name="right"
-              size={30}
-              color="white"
-            />
-          </LinearGradient>
-        </View>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("Splash")}
+        >
+          <NextButton></NextButton>
+        </TouchableOpacity>
         <StatusBar />
       </View>
     </LinearGradient>
@@ -141,40 +140,8 @@ const styles = StyleSheet.create({
     height: 450,
     resizeMode: "contain",
   },
-  nextButton: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    alignSelf: "center",
-    bottom: "-3%",
-    elevation: 2,
-    shadowColor: "red",
+  button: {
     alignItems: "center",
-    justifyContent: "center",
-  },
-  nextButton2: {
-    width: 85,
-    height: 85,
-    borderRadius: 45,
-    alignSelf: "center",
-    bottom: "5%",
-    elevation: 5,
-    backgroundColor: "#a2790d",
-  },
-  nextButtonShadow: {
-    position: "absolute",
-    width: 110,
-    height: 110,
-    borderRadius: 60,
-    alignSelf: "center",
-    bottom: "10%",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 1,
-      height: -10,
-    },
-    leftIcon: {},
-    shadowOpacity: 0.5,
-    shadowRadius: 0,
+    top: "5%",
   },
 });

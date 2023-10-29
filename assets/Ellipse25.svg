@@ -1,0 +1,40 @@
+import * as React from "react"
+const SvgComponent = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={327}
+    height={590}
+    fill="none"
+    {...props}
+  >
+    <g filter="url(#a)">
+      <ellipse
+        cx={27}
+        cy={315.5}
+        fill="#5A32FF"
+        fillOpacity={0.41}
+        rx={178}
+        ry={193.5}
+      />
+    </g>
+    <defs>
+      <filter
+        id="a"
+        width={600}
+        height={631}
+        x={-273}
+        y={0}
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity={0} result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur
+          result="effect1_foregroundBlur_220_101"
+          stdDeviation={61}
+        />
+      </filter>
+    </defs>
+  </svg>
+)
+export default SvgComponent
