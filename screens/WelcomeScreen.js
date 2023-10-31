@@ -65,7 +65,7 @@ export default function App({ navigation }) {
         </View>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate("Splash")}
+          onPress={() => navigation.navigate("SplashSecond")}
         >
           <NextButton></NextButton>
         </TouchableOpacity>
