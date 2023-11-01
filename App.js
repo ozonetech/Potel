@@ -8,13 +8,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, Text, Pressable, TouchableOpacity } from "react-native";
 import Splash from "./screens/Splash";
 import SplashSecond from "./screens/SplashSecond";
-import SplashThird from "./screens/SplashThird";
-import SplashFourt from "./screens/SplashFourt";
-import SplashFivth from "./screens/SplashFivth";
-import SplashSixth from "./screens/SplashSixth";
 import LoginPage from "./screens/LoginPage";
 import LoginScreen from "./screens/LoginScreen";
 import SignupScreen from "./screens/SignupScreen";
+import { HomeScreen } from "./screens/HomeScreen";
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -28,6 +25,11 @@ const App = () => {
             options={{ headerShown: false }}
           />
           <Stack.Screen
+            name="HomeScreen"
+            component={HomeScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
             name="LoginPage"
             component={LoginPage}
             options={{ headerShown: false }}
@@ -37,26 +39,7 @@ const App = () => {
             component={SplashSecond}
             options={{ headerShown: false }}
           />
-          <Stack.Screen
-            name="SplashThird"
-            component={SplashThird}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="SplashFourt"
-            component={SplashFourt}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="SplashFivth"
-            component={SplashFivth}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="SplashSixth"
-            component={SplashSixth}
-            options={{ headerShown: false }}
-          />
+
           <Stack.Screen
             name="LoginScreen"
             component={LoginScreen}

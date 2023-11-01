@@ -48,5 +48,37 @@ const data: OnboardingData[] = [
     textSubtitle:'Our Goal is to Maximize Productivity'
   },
 ];
+const dataText=[
+  {
+    cardText:"hello"
+  },
+  {
+    cardText:"hello"
+  },
+  {
+    cardText:"hello"
+  },
+  {
+    cardText:"hello"
+  },
+  {
+    cardText:"hello"
+  },
+  {
+    cardText:"hello"
+  },
+  {
+    cardText:"hello"
+  },
+  {
+    cardText:"hello"
+  },
+  {
+    cardText:"hello"
+  },
+  {
+    cardText:"hello"
+  },
+]
 
-export default data;
+export default [data,dataText];

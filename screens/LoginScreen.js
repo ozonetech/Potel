@@ -5,10 +5,12 @@ import {
   SafeAreaView,
   TextInput,
   TouchableOpacity,
+  StyleSheet,
 } from "react-native";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/native";
+
 import Animated, {
   FadeIn,
   FadeInDown,
@@ -88,7 +90,7 @@ export default function LoginScreen() {
             >
               <TouchableOpacity
                 className="w-full p-3 rounded-2xl mb-3"
-                style={{ backgroundColor: "#FFC436" }}
+                style={styles.LoginButton}
               >
                 <Text className="text-xl font-bold text-white text-center">
                   Login
@@ -110,3 +112,11 @@ export default function LoginScreen() {
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  LoginButton: {
+    backgroundColor: "#F4CE14",
+    borderWidth: 3,
+    borderColor: "#b48811",
+  },
+});

@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   Pressable,
+  StyleSheet,
 } from "react-native";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
@@ -19,15 +20,17 @@ import Animated, {
 export default function SignupScreen() {
   const navigation = useNavigation();
   return (
-    <View className="bg-white h-full w-full">
+    <View className="bg-gray h-full w-full">
       <StatusBar style="light" />
-      <Image
-        className="h-full w-full absolute"
-        source={require("../assets/images/background.png")}
+      <Animated.Image
+        entering={FadeInUp.duration(1000).springify()}
+        className="absolute"
+        source={require("../assets/potellogoicon.png")}
+        resizeMode="center"
       />
 
       {/* lights */}
-      <View className="flex-row justify-around w-full absolute">
+      {/* <View className="flex-row justify-around w-full absolute">
         <Animated.Image
           entering={FadeInUp.delay(200).duration(1000).springify()}
           source={require("../assets/images/light.png")}
@@ -38,17 +41,24 @@ export default function SignupScreen() {
           source={require("../assets/images/light.png")}
           className="h-[160] w-[65] opacity-75"
         />
-      </View>
+      </View> */}
 
       {/* title and form */}
       <View className="h-full w-full flex justify-around pt-48">
         {/* title */}
         <View className="flex items-center">
+          <Image
+            className="absolute"
+            source={require("../assets/potellogoicon.png")}
+            style={{ top: -650, width: 50 }}
+            resizeMode="center"
+          />
           <Animated.Text
             entering={FadeInUp.duration(1000).springify()}
-            className="text-white font-bold tracking-wider text-5xl"
+            className=" tracking-wider text-5xl"
+            style={{ top: -100, color: "#E9B824" }}
           >
-            Sign Up
+            POTEL
           </Animated.Text>
         </View>
 
@@ -81,7 +91,11 @@ export default function SignupScreen() {
             className="w-full"
             entering={FadeInDown.delay(600).duration(1000).springify()}
           >
-            <TouchableOpacity className="w-full bg-sky-400 p-3 rounded-2xl mb-3">
+            <TouchableOpacity
+              className="w-full bg-sky-400 p-3 rounded-2xl mb-3"
+              style={styles.LoginButton}
+              onPress={() => navigation.navigate("Tarot")}
+            >
               <Text className="text-xl font-bold text-white text-center">
                 SignUp
               </Text>
@@ -92,9 +106,9 @@ export default function SignupScreen() {
             entering={FadeInDown.delay(800).duration(1000).springify()}
             className="flex-row justify-center"
           >
-            <Text>Already have an account? </Text>
+            <Text className="text-black">Already have an account? </Text>
             <TouchableOpacity onPress={() => navigation.push("LoginScreen")}>
-              <Text className="text-sky-600">Login</Text>
+              <Text className="text-sky-600 ">Login</Text>
             </TouchableOpacity>
           </Animated.View>
         </View>
@@ -102,3 +116,9 @@ export default function SignupScreen() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  LoginButton: {
+    backgroundColor: "#F4CE14",
+  },
+});
